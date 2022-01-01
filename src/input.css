@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500;600;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+    .nav-links {
+        @apply text-neutral-700 text-sm pl-2 py-2 hover:bg-gray-100 transition-colors rounded dark:hover:bg-gray-700 dark:text-gray-400 
+    }
+
+    .nav-links.active {
+        @apply bg-gray-100 text-primary dark:bg-gray-700 dark:text-gray-400
+    }
+
+    .sidebar {
+        @apply w-64 border-r p-2 pb-0 flex flex-col justify-between dark:border-gray-700 border-gray-100 divide-solid divide-gray-100 dark:divide-gray-700 divide-y flex-shrink-0 max-h-fit
+    }
+    .sidebar.active{
+        @apply w-full h-fit block overflow-hidden
+    }
+    .item{
+        @apply border border-gray-200 dark:border-gray-700 flex flex-col items-center justify-center py-5 hover:transition-colors px-4
+    }
+    .dark-mode {
+        @apply bg-white dark:bg-gray-900 dark:text-gray-400
+    }
+    .dark-mode.border-dark{
+        @apply border-gray-100 dark:border-gray-700
+    }
+    .dark-mode.placeholder-dark{
+        @apply placeholder:text-gray-400 dark:placeholder:text-gray-500 bg-gray-100 dark:bg-gray-700
+    }
+    .modal{
+        @apply fixed inset-0 bg-gray-900 bg-opacity-80 dark:bg-opacity-90 flex justify-center items-center h-full invisible transition-opacity z-10
+    }
+    .modal.active{
+        @apply visible transition-opacity
+    }
+    .modal-content{
+        @apply flex-1 flex-col items-center justify-center bg-white dark:bg-gray-800 max-w-xl h-fit rounded shadow-md p-6
+    }
+    .dropdown{
+        @apply opacity-0 invisible z-20 group-focus-within:visible group-focus-within:opacity-100 absolute top-full bg-gray-300 w-full transition-all duration-200 right-32 md:right-0
+    }
+    .dropdown-item{
+        @apply text-white dark:text-gray-900 dark:hover:bg-gray-400 bg-gray-900 dark:bg-gray-300 flex px-4 py-2 h-8 items-center text-sm hover:bg-gray-700 transition-colors w-40 md:w-auto
+    }
+}
+
+@layer base {
+    html {
+        font-family: 'Montserrat', sans-serif;
+        overflow: hidden;
+    }
+}
